@@ -10,6 +10,12 @@
       <li :class="{'active' : path == '/adList' || path.startsWith('/adForm')}">
         <a href="javascript:void(0);" v-on:click="href('/adList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 比赛广告管理</a>
       </li>
+      <li :class="{'active' : path == '/teamList' || path.startsWith('/teamForm')}">
+        <a href="javascript:void(0);" v-on:click="href('/teamList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 球队管理</a>
+      </li>
+      <li :class="{'active' : path == '/leagueList' || path.startsWith('/leagueForm')}">
+        <a href="javascript:void(0);" v-on:click="href('/leagueList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 联赛管理</a>
+      </li>
       <li :class="{'active' : path == '/videoList' || path.startsWith('/videoForm')}">
         <a href="javascript:void(0);" v-on:click="href('/videoList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 视频管理</a>
       </li>

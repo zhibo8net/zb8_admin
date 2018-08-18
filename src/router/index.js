@@ -31,11 +31,15 @@ import ReplaceWordList from '@/components/admin/ReplaceWordList'
 import ReplaceWordForm from '@/components/admin/ReplaceWordForm'
 import ConfigList from '@/components/admin/ConfigList'
 import ConfigForm from '@/components/admin/ConfigForm'
-
+import TeamList from '@/components/admin/TeamList'
+import TeamForm from '@/components/admin/TeamForm'
+import LeagueList from '@/components/admin/LeagueList'
+import LeagueForm from '@/components/admin/LeagueForm'
 Vue.use(Router)
 
 const router = new Router({
   routes: [
+
     {
       path: '/login',
       name: 'Login',
@@ -430,6 +434,63 @@ const router = new Router({
         'header': Header,
         'menu': Menu,
         'default': ConfigForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/teamList',
+      name: 'TeamList',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': TeamList,
+        'footer': Footer
+      }
+    },{
+      path: '/teamForm',
+      name: 'TeamCreateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': TeamForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/teamForm/:id',
+      name: 'TeamUpdateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': TeamForm,
+        'footer': Footer
+      }
+    }, {
+      path: '/leagueList',
+      name: 'LeagueList',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': LeagueList,
+        'footer': Footer
+      }
+    },{
+      path: '/leagueForm',
+      name: 'TeagueCreateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': LeagueForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/leagueForm/:id',
+      name: 'LeagueUpdateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': LeagueForm,
         'footer': Footer
       }
     }

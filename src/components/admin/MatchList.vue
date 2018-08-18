@@ -8,6 +8,9 @@
                   <option value="">全部项目</option>
                   <option>足球</option>
                   <option>篮球</option>
+                <option>游戏</option>
+                <option>综合</option>
+                   <option>其他</option>
               </select>
           </div>
           <div class="form-group">
@@ -19,7 +22,7 @@
           </div>
           <div class="form-group">
               <label>日期</label>
-              <input type="date" class="form-control" name="search_EQ_playDateStr"> 
+              <input type="date" class="form-control" name="search_EQ_playDateStr">
           </div>
           <div class="form-group">
               <label>状态</label>
