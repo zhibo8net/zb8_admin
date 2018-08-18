@@ -32,7 +32,7 @@
             <td>{{ a.leagueName1 }}</td>
             <td>{{ a.leagueName2 }}</td>
             <td>{{ a.leagueName3 }}</td>
-            <td><img :src="a.teamImgLink" v-if="a.leagueImgLink!=null" width="20px" height="20px"/></td>
+            <td><img :src="a.leagueImgLink" v-if="a.leagueImgLink!=null" width="20px" height="20px"/></td>
             <td>
               <button type="button" class="btn btn-info" v-on:click="edit(a)">编辑</button>
               <button type="button" class="btn btn-danger" v-on:click="remove(a)">删除</button>
