@@ -1,6 +1,16 @@
 <template>
   <div>
     <form v-on:submit.prevent>
+      <div :class="{'form-group':true, 'has-error':errors.has('新浪直播源')}">
+        <label>新浪直播源</label>
+        <input type="text" class="form-control" placeholder="输入新浪直播源" v-model="match.sinaLiveUrl" v-validate="'required'" name="新浪直播源">
+        <span class="help-block" v-show="errors.has('新浪直播源')">{{ errors.first('新浪直播源') }}</span>
+      </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('新浪数据源')}">
+        <label>新浪数据源</label>
+        <input type="text" class="form-control" placeholder="输入新浪数据源" v-model="match.sinaShujUrl" v-validate="'required'" name="新浪数据源">
+        <span class="help-block" v-show="errors.has('新浪数据源')">{{ errors.first('新浪数据源') }}</span>
+      </div>
       <div :class="{'form-group':true, 'has-error':errors.has('比赛对阵')}">
         <label>比赛对阵</label>
         <input type="text" class="form-control" placeholder="输入比赛对阵" v-model="match.name" v-validate="'required'" name="比赛对阵">
@@ -163,6 +173,8 @@ export default {
         this.$set(match, 'emphasis', matchEntity.emphasis)
         this.$set(match, 'lives', matchEntity.lives)
         this.$set(match, 'ads', matchEntity.ads)
+      this.$set(match, 'sinaLiveUrl', matchEntity.sinaLiveUrl)
+      this.$set(match, 'sinaShujuUrl', matchEntity.sinaShujuUrl)
       }, function (response) {
         g.toLogin()
       })
