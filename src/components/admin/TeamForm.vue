@@ -8,22 +8,22 @@
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('球队英文名称')}">
         <label>球队英文名称</label>
-        <input type="text" class="form-control" placeholder="输入球队英文名称" v-model="team.teamEn" v-validate="'required'" name="球队英文名称">
+        <input type="text" class="form-control" placeholder="输入球队英文名称" v-model="team.teamEn"  name="球队英文名称">
         <span class="help-block" v-show="errors.has('球队英文名称')">{{ errors.first('球队英文名称') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('球队简称1')}">
         <label>球队简称1</label>
-        <input type="text" class="form-control" placeholder="输入球队简称1" v-model="team.teamName1" v-validate="'required'" name="球队简称1">
+        <input type="text" class="form-control" placeholder="输入球队简称1" v-model="team.teamName1" name="球队简称1">
         <span class="help-block" v-show="errors.has('球队简称1')">{{ errors.first('球队简称1') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('球队简称2')}">
         <label>球队简称2</label>
-        <input type="text" class="form-control" placeholder="输入球队简称2" v-model="team.teamName2" v-validate="'required'" name="球队简称2">
+        <input type="text" class="form-control" placeholder="输入球队简称2" v-model="team.teamName2" name="球队简称2">
         <span class="help-block" v-show="errors.has('球队简称2')">{{ errors.first('球队简称2') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('球队简称3')}">
         <label>球队简称3</label>
-        <input type="text" class="form-control" placeholder="输入球队简称3" v-model="team.teamName3" v-validate="'required'" name="球队简称3">
+        <input type="text" class="form-control" placeholder="输入球队简称3" v-model="team.teamName3"  name="球队简称3">
         <span class="help-block" v-show="errors.has('球队简称3')">{{ errors.first('球队简称3') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('球队图片')}">

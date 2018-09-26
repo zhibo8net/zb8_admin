@@ -3,12 +3,12 @@
     <form v-on:submit.prevent>
       <div :class="{'form-group':true, 'has-error':errors.has('新浪直播源')}">
         <label>新浪直播源</label>
-        <input type="text" class="form-control" placeholder="输入新浪直播源" v-model="match.sinaLiveUrl" v-validate="'required'" name="新浪直播源">
+        <input type="text" class="form-control" placeholder="输入新浪直播源" v-model="match.sinaLiveUrl" name="新浪直播源">
         <span class="help-block" v-show="errors.has('新浪直播源')">{{ errors.first('新浪直播源') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('新浪数据源')}">
         <label>新浪数据源</label>
-        <input type="text" class="form-control" placeholder="输入新浪数据源" v-model="match.sinaShujUrl" v-validate="'required'" name="新浪数据源">
+        <input type="text" class="form-control" placeholder="输入新浪数据源" v-model="match.sinaShujUrl" name="新浪数据源">
         <span class="help-block" v-show="errors.has('新浪数据源')">{{ errors.first('新浪数据源') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('比赛对阵')}">
