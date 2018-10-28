@@ -95,7 +95,7 @@ export default {
   name: 'Index',
   data () {
     return {
-      games: '英超|意甲|西甲|法甲|德甲|中超|欧冠|NBA|CBA'.split('|'),
+      games: '英超|意甲|西甲|法甲|德甲|中超|欧冠|NBA|CBA|希腊超|智甲|乌克超|土超|土甲|瑞士超|瑞士甲|丹超|葡超|波兰甲|阿超|瑞典超|克罗甲|苏超|捷甲|俄超|荷甲|德乙|澳超|澳甲|K联赛|J联赛|罗甲|比甲|秘鲁甲|巴甲|墨联|英冠|英甲|意乙|西乙| 挪超|中甲|中乙'.split('|'),
       page: {
         content: [],
         totalElements: 0,

@@ -8,8 +8,13 @@
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('新浪数据源')}">
         <label>新浪数据源</label>
-        <input type="text" class="form-control" placeholder="输入新浪数据源" v-model="match.sinaShujUrl" name="新浪数据源">
+        <input type="text" class="form-control" placeholder="输入新浪数据源" v-model="match.sinaShujuUrl" name="新浪数据源">
         <span class="help-block" v-show="errors.has('新浪数据源')">{{ errors.first('新浪数据源') }}</span>
+      </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('新浪数据源')}">
+        <label>sstream365据源</label>
+        <input type="text" class="form-control" placeholder="sstream365据源" v-model="match.matchStreamUrl" name="sstream365据源">
+        <span class="help-block" v-show="errors.has('sstream365据源')">{{ errors.first('sstream365据源') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('比赛对阵')}">
         <label>比赛对阵</label>
@@ -174,6 +179,7 @@ export default {
         this.$set(match, 'lives', matchEntity.lives)
         this.$set(match, 'ads', matchEntity.ads)
       this.$set(match, 'sinaLiveUrl', matchEntity.sinaLiveUrl)
+      this.$set(match, 'matchStreamUrl', matchEntity.matchStreamUrl)
       this.$set(match, 'sinaShujuUrl', matchEntity.sinaShujuUrl)
       }, function (response) {
         g.toLogin()
