@@ -57,9 +57,17 @@
       <div>
         <div v-for="l in match.lives">
           <label>直播频道</label>
-          <input type="text" class="liveInput" v-model="l.name">
+          <input type="text" class="liveInput" v-model="l.name" style="width:200px">
           <label>直播链接</label>
           <input type="text" class="liveInput" v-model="l.link">
+          <div :class="{'form-group':true, 'has-error':errors.has('是否站内播放')}" style="width:200px">
+            <label>是否站内播放</label>
+            <select class="form-control" name="是否站内播放" v-model="l.playFlag" style="width:150px">
+              <option value="INNER">站内播放</option>
+              <option value="OUTER">站外播放</option>
+            </select>
+            <span class="help-block" v-show="errors.has('是否站内播放')">{{ errors.first('是否站内播放') }}</span>
+          </div>
           <button v-on:click="removeLive(l)" class="del-image-btn">删除</button>
         </div>
         <button v-on:click="addLive"> + </button>

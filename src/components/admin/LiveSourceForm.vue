@@ -29,6 +29,11 @@
         <input type="text" class="form-control" placeholder="输入频道匹配" v-model="liveSource.channels" v-validate="'required'" name="频道匹配">
         <span class="help-block" v-show="errors.has('频道匹配')">{{ errors.first('频道匹配') }}</span>
       </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('站内频道匹配')}">
+        <label>站内频道匹配（用|分隔）</label>
+        <input type="text" class="form-control" placeholder="输入站内频道匹配" v-model="liveSource.innerPlayChannels"  name="站内频道匹配">
+        <span class="help-block" v-show="errors.has('站内频道匹配')">{{ errors.first('站内频道匹配') }}</span>
+      </div>
       <button type="button" class="btn btn-default" v-on:click="submit()">提交</button>
     </form>
   </div>
@@ -112,6 +117,7 @@ export default {
         this.$set(liveSource, 'active', liveSourceEntity.active)
         this.$set(liveSource, 'fetchInterval', liveSourceEntity.fetchInterval)
         this.$set(liveSource, 'channels', liveSourceEntity.channels)
+      this.$set(liveSource, 'innerPlayChannels', liveSourceEntity.innerPlayChannels)
       }, function (response) {
         g.toLogin()
       })
