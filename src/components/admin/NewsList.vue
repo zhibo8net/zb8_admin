@@ -9,6 +9,7 @@
             <th>项目</th>
             <th>赛事</th>
             <th>来源</th>
+            <th>关联比赛</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -18,6 +19,7 @@
             <td>{{ a.project }}</td>
             <td>{{ a.game }}</td>
             <td><a :href="a.source" target="_blank" v-if="a.source!=null">链接</a></td>
+            <td>{{ a.matchName }}</td>
             <td>
               <button type="button" class="btn btn-info" v-on:click="edit(a)">编辑</button>
               <button type="button" class="btn btn-danger" v-on:click="remove(a)">删除</button>

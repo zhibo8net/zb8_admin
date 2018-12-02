@@ -3,18 +3,35 @@
     <form>
       <div :class="{'form-group':true, 'has-error':errors.has('项目')}">
         <label>项目</label>
-        <input type="text" class="form-control" placeholder="项目" v-model="news.project" v-validate="'required'" name="项目">
+        <select class="form-control" name="项目" v-model="news.project"  v-validate="'required'">
+          <option>足球</option>
+          <option>篮球</option>
+          <option>游戏</option>
+          <option>综合</option>
+          <option>其他</option>
+        </select>
         <span class="help-block" v-show="errors.has('项目')">{{ errors.first('项目') }}</span>
+
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('赛事')}">
         <label>赛事</label>
-        <input type="text" class="form-control" placeholder="赛事" v-model="news.game" v-validate="'required'" name="赛事">
+        <select class="form-control" name="赛事" v-model="news.game"  v-validate="'required'">
+        <option v-for="g in games">{{g}}</option>
+        </select>
         <span class="help-block" v-show="errors.has('赛事')">{{ errors.first('赛事') }}</span>
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('标题')}">
         <label>标题</label>
         <input type="text" class="form-control" placeholder="输入标题" v-model="news.title" v-validate="'required'" name="标题">
         <span class="help-block" v-show="errors.has('标题')">{{ errors.first('标题') }}</span>
+      </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('相关比赛')}">
+        <label>相关比赛</label>
+        <select class="form-control" name="相关比赛" v-model="news.matchName" >
+          <option v-for="match in matchList">{{match}}</option>
+        </select>
+        <span class="help-block" v-show="errors.has('相关比赛')">{{ errors.first('相关比赛') }}</span>
+
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('来源')}">
         <label>来源</label>
@@ -62,7 +79,9 @@ export default {
   name: 'Index',
   data () {
     return {
-      news: {}
+      games: '英超|意甲|西甲|法甲|德甲|中超|欧冠|NBA|CBA|希腊超|智甲|乌克超|土超|土甲|瑞士超|瑞士甲|丹超|葡超|波兰甲|阿超|瑞典超|克罗甲|苏超|捷甲|俄超|荷甲|德乙|澳超|澳甲|K联赛|J联赛|罗甲|比甲|秘鲁甲|巴甲|墨联|英冠|英甲|意乙|西乙| 挪超|中甲|中乙'.split('|'),
+      news: {},
+      matchList:{}
     }
   },
   methods: {
@@ -105,6 +124,12 @@ export default {
     }
   },
   created () {
+  let that = this;
+  Vue.http.get(g.t('/api/admin/matchList')).then(function (response) {
+
+    that.matchList=response.bodyText.split('|')
+
+  })
     let news = this.$data.news
     let newsId = this.$route.params.id
     if (newsId) {
@@ -117,6 +142,7 @@ export default {
         this.$set(news, 'source', newsEntity.source)
         this.$set(news, 'content', newsEntity.content)
         this.$set(news, 'image', newsEntity.image)
+        this.$set(news, 'matchName', newsEntity.matchName)
       }, function (response) {
         g.toLogin()
       })
