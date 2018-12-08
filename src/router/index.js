@@ -35,6 +35,9 @@ import TeamList from '@/components/admin/TeamList'
 import TeamForm from '@/components/admin/TeamForm'
 import LeagueList from '@/components/admin/LeagueList'
 import LeagueForm from '@/components/admin/LeagueForm'
+import SensitiveList from '@/components/admin/SensitiveList'
+import SensitiveForm from '@/components/admin/SensitiveForm'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -491,6 +494,34 @@ const router = new Router({
         'header': Header,
         'menu': Menu,
         'default': LeagueForm,
+        'footer': Footer
+      }
+    },{
+      path: '/sensitiveList',
+      name: 'SensitiveList',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': SensitiveList,
+        'footer': Footer
+      }
+    },{
+      path: '/sensitiveForm',
+      name: 'SensitiveCreateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': SensitiveForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/sensitiveForm/:id',
+      name: 'SensitiveUpdateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': SensitiveForm,
         'footer': Footer
       }
     }

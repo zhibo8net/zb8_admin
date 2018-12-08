@@ -58,12 +58,13 @@ Vue.config.productionTip = false
 Vue.use(VueKindEditor)
 
 export default {
-  name: 'Index',
-  data () {
-  return { team:{}}
+  name: 'Index',data(){
+  return {
+    team:{}
+  }
 },methods: {
     submit: function () {
-      this.$validator.validateAll().then(result => {
+      this.$validator.validateAll().then(result =>{
         if (result) {
           let team = this.$data.team
           if (!team.id) {

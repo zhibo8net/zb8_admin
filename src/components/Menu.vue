@@ -22,6 +22,9 @@
       <li :class="{'active' : path == '/newsList' || path.startsWith('/newsForm')}">
         <a href="javascript:void(0);" v-on:click="href('/newsList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 新闻管理</a>
       </li>
+      <li :class="{'active' : path == '/sensitiveList' || path.startsWith('/sensitiveForm')}">
+        <a href="javascript:void(0);" v-on:click="href('/sensitiveList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 铭感词管理</a>
+      </li>
       <li :class="{'active' : path == '/imageList' || path.startsWith('/imageForm')}">
         <a href="javascript:void(0);" v-on:click="href('/imageList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 组图管理</a>
       </li>
