@@ -33,6 +33,14 @@
         <span class="help-block" v-show="errors.has('相关比赛')">{{ errors.first('相关比赛') }}</span>
 
       </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('新闻类型')}" style="width:200px">
+        <label>新闻类型：选择赛事前瞻，请尽量关联比赛(关联比赛后首页才会显示)</label>
+        <select class="form-control" name="新闻类型" v-model="news.matchPreFlag"   v-validate='required' style="width:150px">
+          <option value="0">新闻</option>
+          <option value="1">赛事前瞻</option>
+        </select>
+        <span class="help-block" v-show="errors.has('新闻类型')">{{ errors.first('新闻类型') }}</span>
+      </div>
       <div :class="{'form-group':true, 'has-error':errors.has('来源')}">
         <label>来源</label>
         <input type="text" class="form-control" placeholder="输入来源" v-model="news.source" name="来源">
@@ -79,7 +87,7 @@ export default {
   name: 'Index',
   data () {
     return {
-      games: '英超|意甲|西甲|法甲|德甲|中超|欧冠|NBA|CBA|希腊超|智甲|乌克超|土超|土甲|瑞士超|瑞士甲|丹超|葡超|波兰甲|阿超|瑞典超|克罗甲|苏超|捷甲|俄超|荷甲|德乙|澳超|澳甲|K联赛|J联赛|罗甲|比甲|秘鲁甲|巴甲|墨联|英冠|英甲|意乙|西乙| 挪超|中甲|中乙'.split('|'),
+      games: '法联杯|德国杯|国王杯|英足总杯|亚洲杯|英超|意甲|西甲|法甲|德甲|中超|欧冠|NBA|CBA|希腊超|智甲|乌克超|土超|土甲|瑞士超|瑞士甲|丹超|葡超|波兰甲|阿超|瑞典超|克罗甲|苏超|捷甲|俄超|荷甲|德乙|澳超|澳甲|K联赛|J联赛|罗甲|比甲|秘鲁甲|巴甲|墨联|英冠|英甲|意乙|西乙| 挪超|中甲|中乙'.split('|'),
       news: {},
       matchList:{}
     }
@@ -143,6 +151,7 @@ export default {
         this.$set(news, 'content', newsEntity.content)
         this.$set(news, 'image', newsEntity.image)
         this.$set(news, 'matchName', newsEntity.matchName)
+      this.$set(news, 'matchPreFlag', newsEntity.matchPreFlag)
       }, function (response) {
         g.toLogin()
       })
