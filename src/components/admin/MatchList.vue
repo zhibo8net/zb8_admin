@@ -2,6 +2,10 @@
   <div>
       <h2>比赛管理</h2>
       <form id="queryForm" class="form-inline" role="form">
+        <div class="form-group">
+          <label>对阵</label>
+          <input type="input" class="form-control" name="search_LIKE_name">
+        </div>
           <div class="form-group">
               <label>项目</label>
               <select class="form-control" name="search_EQ_project">
@@ -41,9 +45,10 @@
               </select>
           </div>
           <button type="button" class="btn btn-primary" v-on:click="goto(0)">查询</button>
+        <button type="button" class="btn btn-info" v-on:click="create()">新建比赛</button>
       </form>
       <hr>
-      <div><button type="button" class="btn btn-info pull-right" v-on:click="create()">新建比赛</button></div>
+
       <table class="table">
         <thead>
           <tr>
