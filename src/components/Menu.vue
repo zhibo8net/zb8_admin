@@ -7,6 +7,13 @@
       <li :class="{'active' : path == '/matchList' || path.startsWith('/matchForm')}">
         <a href="javascript:void(0);" v-on:click="href('/matchList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 比赛管理</a>
       </li>
+
+      <li :class="{'active' : path == '/issueList' || path.startsWith('/issueForm')}">
+        <a href="javascript:void(0);" v-on:click="href('/issueList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 竞猜管理</a>
+      </li>
+      <li :class="{'active' : path == '/problemDbList' || path.startsWith('/problemDbForm')}">
+        <a href="javascript:void(0);" v-on:click="href('/problemDbList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 竞猜题库管理</a>
+      </li>
       <li :class="{'active' : path == '/adList' || path.startsWith('/adForm')}">
         <a href="javascript:void(0);" v-on:click="href('/adList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 比赛广告管理</a>
       </li>

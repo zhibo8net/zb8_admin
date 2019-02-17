@@ -37,6 +37,10 @@ import LeagueList from '@/components/admin/LeagueList'
 import LeagueForm from '@/components/admin/LeagueForm'
 import SensitiveList from '@/components/admin/SensitiveList'
 import SensitiveForm from '@/components/admin/SensitiveForm'
+import IssueList from '@/components/admin/IssueList'
+import IssueForm from '@/components/admin/IssueForm'
+import ProblemDbList from '@/components/admin/ProblemDbList'
+import ProblemDbForm from '@/components/admin/ProblemDbForm'
 
 Vue.use(Router)
 
@@ -522,6 +526,62 @@ const router = new Router({
         'header': Header,
         'menu': Menu,
         'default': SensitiveForm,
+        'footer': Footer
+      }
+    },{
+      path: '/issueList',
+      name: 'IssueList',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': IssueList,
+        'footer': Footer
+      }
+    },{
+      path: '/issueForm',
+      name: 'IssueCreateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': IssueForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/issueForm/:id',
+      name: 'IssueUpdateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': IssueForm,
+        'footer': Footer
+      }
+    },{
+      path: '/problemDbList',
+      name: 'ProblemDbList',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': ProblemDbList,
+        'footer': Footer
+      }
+    },{
+      path: '/problemDbForm',
+      name: 'ProblemDbCreateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': ProblemDbForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/problemDbForm/:id',
+      name: 'ProblemDbUpdateForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': ProblemDbForm,
         'footer': Footer
       }
     }
