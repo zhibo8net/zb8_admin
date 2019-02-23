@@ -105,11 +105,9 @@
         })
       },
       addQuestion(id) {
-        if (this.list.includes(id)) {
-          let i = this.list.findIndex(function (value, index, arr) {
-            return value == id
-          })
-          this.list.splice(i, 1)
+        let index = this.list.indexOf(id);
+        if (index>-1) {
+          this.list.splice(index, 1)
         } else {
           this.list.push(id)
         }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <form>{{
-        issue
+      issue
       }}
       <table class="table">
         <thead>
@@ -19,7 +19,7 @@
             <td>{{ a.status=='1'?'中奖':'未中奖' }}</td>
             <td>{{ a.userWx }}</td>
           </tr>
-          <tr>
+          <tr v-if="userAdminDbList.length == 0">
             <td colspan="7">
               暂无用户
             </td>
@@ -55,7 +55,7 @@
     name: 'Index',
     data() {
       return {
-        tablist:['选择','用户电话','竞猜时间','竞猜内容','正确率','是否中奖','微信'],
+        tablist: ['选择', '用户电话', '竞猜时间', '竞猜内容', '正确率', '是否中奖', '微信'],
         issueId: '',
         list: [], // 已选中用户id列表
         issue: {
@@ -68,15 +68,16 @@
       submit: function () {
         this.$validator.validateAll().then(result => {
           if (result) {
+            this.issue.issueUserList = [];
             this.list.map((data) => {
               this.issue.issueUserList.push({
                 'id': data
               })
             })
-            let issue = this.issue;
-            if (!issue.id) {
+            let issue = this.issue
+          if (issue.id) {
               Vue.http.post(g.t('/api/admin/updateIssueUser'), JSON.stringify(issue)).then(function (response) {
-                location.href = '#/issueList/'+this.issueId
+                location.href = '#/issueList/' + this.issueId
               }, function (response) {
                 g.showMessage(response)
               })
@@ -85,11 +86,9 @@
         })
       },
       addQuestion(id) {
-        if (this.list.includes(id)) {
-          let i = this.list.findIndex(function (value, index, arr) {
-            return value == id
-          })
-          this.list.splice(i, 1)
+        let index = this.list.indexOf(id)
+      if (index > -1) {
+          this.list.splice(index, 1)
         } else {
           this.list.push(id)
         }
