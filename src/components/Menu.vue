@@ -8,7 +8,7 @@
         <a href="javascript:void(0);" v-on:click="href('/matchList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 比赛管理</a>
       </li>
 
-      <li :class="{'active' : path == '/issueList' || path.startsWith('/issueForm')}">
+      <li :class="{'active' : path == '/issueList' || path.startsWith('/issueForm')|| path.startsWith('/userForm')}">
         <a href="javascript:void(0);" v-on:click="href('/issueList')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 竞猜管理</a>
       </li>
       <li :class="{'active' : path == '/problemDbList' || path.startsWith('/problemDbForm')}">

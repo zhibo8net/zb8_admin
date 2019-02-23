@@ -39,6 +39,7 @@ import SensitiveList from '@/components/admin/SensitiveList'
 import SensitiveForm from '@/components/admin/SensitiveForm'
 import IssueList from '@/components/admin/IssueList'
 import IssueForm from '@/components/admin/IssueForm'
+import UserForm from '@/components/admin/UserForm'
 import ProblemDbList from '@/components/admin/ProblemDbList'
 import ProblemDbForm from '@/components/admin/ProblemDbForm'
 
@@ -544,6 +545,16 @@ const router = new Router({
         'header': Header,
         'menu': Menu,
         'default': IssueForm,
+        'footer': Footer
+      }
+    },
+    {
+      path: '/userForm/:id',
+      name: 'userForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': UserForm,
         'footer': Footer
       }
     },

@@ -79,6 +79,7 @@
             <td>{{ a.problemNum }}</td>
             <td>{{ a.addTimeStr }}</td>
             <td>
+              <button type="button" class="btn btn-info" v-on:click="userEdit(a)">查看用户</button>
               <button type="button" class="btn btn-info" v-on:click="edit(a)">编辑</button>
               <button type="button" class="btn btn-danger" v-on:click="remove(a)">删除</button>
             </td>
@@ -125,6 +126,9 @@ export default {
     },
     edit: function (issue) {
       location.href = '#/issueForm/' + issue.id
+    },
+    userEdit: function (issue) {
+      location.href = '#/userForm/' + issue.id
     },
     remove: function (issue) {
       var that = this
