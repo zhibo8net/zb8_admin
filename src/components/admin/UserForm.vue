@@ -19,6 +19,11 @@
             <td>{{ a.status=='1'?'中奖':'未中奖' }}</td>
             <td>{{ a.userWx }}</td>
           </tr>
+          <tr>
+            <td colspan="7">
+              暂无用户
+            </td>
+          </tr>
         </tbody>
       </table>
       <button type="button" class="btn btn-default" v-on:click="submit()">提交</button>
