@@ -135,7 +135,7 @@
           let issueEntity = response.data
           that.problemAdminDbList = issueEntity.issueProblemList
           issueEntity.issueProblemList.map((data) => {
-            this.list.push(data.id)
+            this.list.push(data.problemDb.id)
           })
           this.$set(issue, 'id', issueEntity.id)
           this.$set(issue, 'issue', issueEntity.issue)
