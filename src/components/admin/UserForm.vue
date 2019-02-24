@@ -1,8 +1,7 @@
 <template>
   <div>
-    <form>{{
-      issue
-      }}
+    <h2>用户管理</h2>
+    <form>
       <table class="table">
         <thead>
           <tr>
@@ -27,6 +26,7 @@
         </tbody>
       </table>
       <button type="button" class="btn btn-default" v-on:click="submit()">提交</button>
+      <h2></h2>
     </form>
   </div>
 </template>
