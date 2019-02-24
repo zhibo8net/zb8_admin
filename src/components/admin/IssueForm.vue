@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>竞猜编辑</h2>
     <form>
       <div :class="{'form-group':true, 'has-error':errors.has('期次')}">
         <label>期次(由系统自动生成)</label>
@@ -14,17 +15,21 @@
       </div>
       <div :class="{'form-group':true, 'has-error':errors.has('竞猜题目')}">
         <label>竞猜题目</label>
-        <div v-for="problemAdminDb in problemAdminDbList">
+        <div v-for="(problemAdminDb,i) in problemAdminDbList" :key="i">
           <div v-if="!issueId">
             <p>
-              <input type="checkbox" name="category" v-on:click="addQuestion(problemAdminDb.id)" />{{problemAdminDb.problemTitle}}
+              <input type="checkbox" name="category" v-on:click="addQuestion(problemAdminDb.id)" />
+              <span></span><span style="padding-right:10px;">竞猜题:</span>{{problemAdminDb.problemTitle}}
             </p>
+            <span>选项：</span>
             <label v-for="problemContent in problemAdminDb.problemContentList" style="width:200px">{{problemContent.questionContent}}</label>
           </div>
           <div v-else>
             <p>
-              <input type="checkbox" name="category" checked="checked" v-on:click="addQuestion(problemAdminDb.problemDb.id)" />{{problemAdminDb.problemDb.problemTitle}}
+              <input type="checkbox" name="category" checked="checked" v-on:click="addQuestion(problemAdminDb.problemDb.id)" />
+              <span></span><span style="padding-right:10px;">竞猜题:</span>{{problemAdminDb.problemDb.problemTitle}}
             </p>
+            <span>选项：</span>
             <label v-for="problemContent in problemAdminDb.problemDb.problemContentList" style="width:200px">{{problemContent.questionContent}}</label>
           </div>
 
@@ -41,6 +46,7 @@
 
       </div>
       <button type="button" class="btn btn-default" v-on:click="submit()">提交</button>
+      <h2></h2>
     </form>
   </div>
 </template>

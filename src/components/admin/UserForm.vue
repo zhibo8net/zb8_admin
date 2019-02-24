@@ -1,7 +1,5 @@
 <template>
   <div>
-    <form>
-
       <div :class="{'form-group':true, 'has-error':errors.has('期次')}">
         <label>期次：</label>
         <span>{{ issue.issue }}</span>
@@ -22,6 +20,9 @@
         <span>{{ issue.partNum }}</span>
         <span class="help-block" v-show="errors.has('对阵')">{{ errors.first('竞猜用户数') }}</span>
       </div>
+
+    <h2>用户管理</h2>
+    <form>
       <button type="button" class="btn btn-default" v-on:click="submit()">批量设置中奖</button> <button type="button" class="btn btn-default" v-on:click="retPage()">返回</button>
 
       <table class="table">
@@ -49,6 +50,7 @@
           </tr>
         </tbody>
       </table>
+      <h2></h2>
     </form>
   </div>
 </template>
@@ -129,6 +131,8 @@
           that.userAdminDbList = issueEntity.issueUserList
           this.$set(issue, 'id', issueEntity.id)
           this.$set(issue, 'issue', issueEntity.issue)
+        this.$set(issue, 'partNum', issueEntity.partNum)
+        this.$set(issue, 'problemNum', issueEntity.problemNum)
           this.$set(issue, 'matchNameAndId', issueEntity.matchNameAndId)
         }, function (response) {
           g.toLogin()
