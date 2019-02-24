@@ -16,7 +16,7 @@
             <td>{{ a.addTime }}</td>
             <td>{{ a.answer }}</td>
             <td>{{ a.answerRate }}</td>
-            <td>{{ a.status=='1'?'中奖':'未中奖' }}</td>
+            <td>{{ a.status=='AWARD'?'中奖':'未中奖' }}</td>
             <td>{{ a.userWx }}</td>
           </tr>
           <tr v-if="userAdminDbList.length == 0">
@@ -77,7 +77,7 @@
             let issue = this.issue
           if (issue.id) {
               Vue.http.post(g.t('/api/admin/updateIssueUser'), JSON.stringify(issue)).then(function (response) {
-                location.href = '#/issueList/' + this.issueId
+                location.href = '#/issueList'
               }, function (response) {
                 g.showMessage(response)
               })
