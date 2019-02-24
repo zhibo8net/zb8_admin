@@ -23,7 +23,7 @@
           </div>
           <div v-else>
             <p>
-              <input type="checkbox" name="category" checked="checked" v-on:click="addQuestion(problemAdminDb.id)" />{{problemAdminDb.problemDb.problemTitle}}
+              <input type="checkbox" name="category" checked="checked" v-on:click="addQuestion(problemAdminDb.problemDb.id)" />{{problemAdminDb.problemDb.problemTitle}}
             </p>
             <label v-for="problemContent in problemAdminDb.problemDb.problemContentList" style="width:200px">{{problemContent.questionContent}}</label>
           </div>

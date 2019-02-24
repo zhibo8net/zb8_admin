@@ -1,8 +1,29 @@
 <template>
   <div>
-    <form>{{
-      issue
-      }}
+    <form>
+
+      <div :class="{'form-group':true, 'has-error':errors.has('期次')}">
+        <label>期次：</label>
+        <span>{{ issue.issue }}</span>
+      </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('对阵')}">
+        <label>对阵：</label>
+        <span>{{ issue.matchNameAndId }}</span>
+        <span class="help-block" v-show="errors.has('对阵')">{{ errors.first('对阵') }}</span>
+      </div>
+
+      <div :class="{'form-group':true, 'has-error':errors.has('问题数')}">
+        <label>问题数：</label>
+        <span>{{issue.problemNum}}</span>
+        <span class="help-block" v-show="errors.has('对阵')">{{ errors.first('问题数') }}</span>
+      </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('竞猜用户数')}">
+        <label>竞猜用户数：</label>
+        <span>{{ issue.partNum }}</span>
+        <span class="help-block" v-show="errors.has('对阵')">{{ errors.first('竞猜用户数') }}</span>
+      </div>
+      <button type="button" class="btn btn-default" v-on:click="submit()">批量设置中奖</button> <button type="button" class="btn btn-default" v-on:click="retPage()">返回</button>
+
       <table class="table">
         <thead>
           <tr>
@@ -15,8 +36,10 @@
             <td>{{ a.userMobile }}</td>
             <td>{{ a.addTime }}</td>
             <td>{{ a.answer }}</td>
-            <td>{{ a.answerRate }}</td>
-            <td>{{ a.status=='AWARD'?'中奖':'未中奖' }}</td>
+            <td>{{ a.answerRate }}%</td>
+            <td v-if="a.status=='AWARD'" style="color:red">中奖</td>
+            <td v-if="a.status=='UNAWARD'" >未中奖</td>
+            <td v-if="a.status=='INIT'" >待开奖</td>
             <td>{{ a.userWx }}</td>
           </tr>
           <tr v-if="userAdminDbList.length == 0">
@@ -26,7 +49,6 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-default" v-on:click="submit()">提交</button>
     </form>
   </div>
 </template>
@@ -85,6 +107,9 @@
           }
         })
       },
+  retPage() {
+    location.href = '#/issueList'
+  },
       addQuestion(id) {
         let index = this.list.indexOf(id)
       if (index > -1) {
