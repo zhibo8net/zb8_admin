@@ -48,7 +48,7 @@
           <tr v-for="a in userAdminDbList" v-if="issue.userShowFlag!='DISPLAY'">
             <td><input type="checkbox" name="category" v-on:click="addQuestion(a.id)" /></td>
             <td>{{ a.userMobile }}</td>
-            <td>{{ a.addTime }}</td>
+            <td>{{ a.addTimeStr }}</td>
             <td>{{ a.answer }}</td>
             <td>{{ a.answerRate }}%</td>
             <td v-if="a.status=='AWARD'" style="color:red">中奖</td>
