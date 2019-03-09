@@ -21,7 +21,7 @@ export default {
   },
   showMessage: function (response) {
     console.log(response)
-    if( alert(JSON.parse(response.bodyText).code=='100')){
+    if( JSON.parse(response.bodyText).code=='100'){
       alert(JSON.parse(response.bodyText).message)
     }else{
       localStorage.setItem('token', null)

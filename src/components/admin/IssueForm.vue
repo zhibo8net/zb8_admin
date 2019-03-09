@@ -22,7 +22,7 @@
               <span></span><span style="padding-right:10px;">竞猜题:</span>{{problemAdminDb.problemTitle}}
             </p>
             <span>选项：</span>
-            <label v-for="problemContent in problemAdminDb.problemContentList" style="width:200px">{{problemContent.questionContent}}</label>
+            <label v-for="problemContent in problemAdminDb.problemContentList"  style="border:1px solid #4184f3;margin-left:10px">{{problemContent.questionContent}}</label>
           </div>
           <div v-else>
             <p>

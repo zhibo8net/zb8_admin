@@ -33,6 +33,7 @@
           <option  value="INIT">初始化</option>
           <option  value="DOING">竞猜中</option>
           <option  value="MATCHEND">比赛结束</option>
+          <option  value="DRAWING">开奖中</option>
           <option  value="DRAW">已开奖</option>
           <option  value="PIEAWARD">已派奖</option>
         </select>
@@ -63,7 +64,7 @@
             <th>中奖人数</th>
             <th>问题数</th>
             <th>发布时间</th>
-            <th>操作</th>
+            <th align="center">操作</th>
           </tr>
         </thead>
         <tbody>
@@ -78,10 +79,10 @@
             <td>{{ a.awardNum }}</td>
             <td>{{ a.problemNum }}</td>
             <td>{{ a.addTimeStr }}</td>
-            <td>
-              <button type="button" class="btn btn-info" v-on:click="userEdit(a)">竞猜用户</button>
+            <td width="200px">
               <button type="button" class="btn btn-info" v-on:click="edit(a)">编辑</button>
               <button type="button" class="btn btn-danger" v-on:click="remove(a)">删除</button>
+              <button type="button" class="btn btn-info" v-on:click="userEdit(a)">更多</button>
             </td>
           </tr>
         </tbody>
@@ -122,10 +123,10 @@ export default {
   },
   methods: {
     create: function () {
-      location.href = '#/issueForm/'
+      location.href = '#/addIssueForm/'
     },
     edit: function (issue) {
-      location.href = '#/issueForm/' + issue.id
+      location.href = '#/updateIssueForm/' + issue.id
     },
     userEdit: function (issue) {
       location.href = '#/userForm/' + issue.id

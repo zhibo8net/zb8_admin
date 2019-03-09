@@ -40,6 +40,8 @@ import SensitiveForm from '@/components/admin/SensitiveForm'
 import IssueList from '@/components/admin/IssueList'
 import IssueForm from '@/components/admin/IssueForm'
 import UserForm from '@/components/admin/UserForm'
+import AddIssueForm from '@/components/admin/AddIssueForm'
+import UpdateIssueForm from '@/components/admin/UpdateIssueForm.vue'
 import ProblemDbList from '@/components/admin/ProblemDbList'
 import ProblemDbForm from '@/components/admin/ProblemDbForm'
 
@@ -565,6 +567,24 @@ const router = new Router({
         'header': Header,
         'menu': Menu,
         'default': IssueForm,
+        'footer': Footer
+      }
+    },{
+      path: '/updateIssueForm/:id',
+      name: 'newUpdateIssueForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': UpdateIssueForm,
+        'footer': Footer
+      }
+    },{
+      path: '/addIssueForm',
+      name: 'AddCreateIssueForm',
+      components: {
+        'header': Header,
+        'menu': Menu,
+        'default': AddIssueForm,
         'footer': Footer
       }
     },{

@@ -6,6 +6,15 @@
         <input type="text" class="form-control"  placeholder="输入题目标题" v-model="problemDb.problemTitle"  v-validate="'required'">
         <span class="help-block" v-show="errors.has('题目标题')">{{ errors.first('题目标题') }}</span>
       </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('项目')}">
+        <label>项目</label>
+        <select class="form-control"  v-model="problemDb.project"  v-validate="'required'">
+          <option value="足球">足球</option>
+          <option value="篮球">篮球</option>
+        </select>
+        <span class="help-block" v-show="errors.has('是否默认')">{{ errors.first('是否默认') }}</span>
+      </div>
+
       <div :class="{'form-group':true, 'has-error':errors.has('是否默认')}">
         <label>是否默认</label>
         <select class="form-control"  v-model="problemDb.problemFlag"  v-validate="'required'">
@@ -32,7 +41,19 @@
         </div>
         <button v-on:click="addQuestion"> + </button>
       </div>
-
+      <div :class="{'form-group':true, 'has-error':errors.has('输入值标示')}">
+        <label>输入值标示</label>
+        <select class="form-control"  v-model="problemDb.inputFlag">
+          <option value="INPUT">有</option>
+          <option value="UNINPUT">无</option>
+        </select>
+        <span class="help-block" v-show="errors.has('输入值标示')">{{ errors.first('输入值标示') }}</span>
+      </div>
+      <div :class="{'form-group':true, 'has-error':errors.has('输入值')}">
+        <label>输入值</label>
+        <input type="text" class="form-control"   placeholder="输入值" v-model="problemDb.inputContent">
+        <span class="help-block" v-show="errors.has('输入值')">{{ errors.first('输入值') }}</span>
+      </div>
       <div :class="{'form-group':true, 'has-error':errors.has('正确答案')}">
         <label>正确答案</label>
         <input type="text" class="form-control"   placeholder="输入正确答案" v-model="problemDb.answer">
@@ -113,6 +134,9 @@ removeQuestion (question) {
     this.$set(problemDb, 'problemFlag', problemDbEntity.problemFlag)
     this.$set(problemDb, 'problemType', problemDbEntity.problemType)
     this.$set(problemDb, 'answer', problemDbEntity.answer)
+    this.$set(problemDb, 'project', problemDbEntity.project)
+    this.$set(problemDb, 'inputFlag', problemDbEntity.inputFlag)
+    this.$set(problemDb, 'inputContent', problemDbEntity.inputContent)
     this.$set(problemDb, 'problemContentList', problemDbEntity.problemContentList)
   }, function (response) {
     g.toLogin()
